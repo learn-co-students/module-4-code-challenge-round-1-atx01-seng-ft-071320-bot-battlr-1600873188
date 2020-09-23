@@ -45,9 +45,13 @@ All of the code to style the page has been written for you, meaning that you sho
 
 As a user, I should be able to:
 
-- See profiles of all bots rendered in `BotCollection`.
-- Add an individual bot to my army by clicking on it. The selected bot should render in the `YourBotArmy` component. The bot can be enlisted only **once**. The bot **does not** disappear from the `BotCollection`.
+<!-- - See profiles of all bots rendered in `BotCollection`. -->
+
+<!-- - Add an individual bot to my army by clicking on it. The selected bot should render in the `YourBotArmy` component. The bot can be enlisted only **once**. The bot **does not** disappear from the `BotCollection`. -->
+
+
 - Release a bot from my army by clicking on it. The bot disappears from the `YourBotArmy` component.
+
 - Discharge a bot from their service forever, by clicking the red button marked "x", which would delete the bot both from the backend and from the `YourBotArmy` on the frontend.
 
 ## Advanced Deliverables
@@ -65,9 +69,13 @@ As a user, I should be able to:
 [full_demo]: ./public/full_demo.gif "Full demo"
 
 - Sort bots by their health, damage or armor. For this, create a new component, `SortBar`.
+
 - When I enlist a bot it will be **removed** from the `BotCollection` and added to `YourBotArmy`.
+
 - Filter bots by their class. We can select a few filters at the same time.
+
 - Sort bots by their health, damage or armor. For this, create a new component, `SortBar`.
+
 - Only enlist **one** bot from each `bot_class`. The classes are `["Support", "Medic", "Assault", "Defender", "Captain", "Witch"]`.
 
 ## Rubric
