@@ -10,38 +10,39 @@ const botTypeClasses = {
 };
 
 const BotCard = props => {
+  const {id, name, health, damage, armor, bot_class, catchphrase, avatar_url, enlisted} = props.robot
   return (
     <div className="ui column">
+     
       <div
         className="ui card"
-        key={props.bot.id}
-        onClick={() => console.log("add code to connect event listener")}
-      >
+        key={id}
+        onClick={() => props.addToMyArmy(props.robot)}>
         <div className="image">
-          <img alt="oh no!" src={props.bot.avatar_url} />
+          <img alt="oh no!" src={avatar_url} />
         </div>
         <div className="content">
           <div className="header">
-            {props.bot.name}
-            <i className={botTypeClasses[props.bot.bot_class]} />
+            {name}
+            <i className={botTypeClasses[bot_class]} />
           </div>
           <div className="meta text-wrap">
-            <small>{props.bot.catchphrase}</small>
+            <small>{catchphrase}</small>
           </div>
         </div>
         <div className="extra content">
           <span>
             <i className="icon heartbeat" />
-            {props.bot.health}
+            {health}
           </span>
 
           <span>
             <i className="icon lightning" />
-            {props.bot.damage}
+            {damage}
           </span>
           <span>
             <i className="icon shield" />
-            {props.bot.armor}
+            {armor}
           </span>
           <span>
             <div className="ui center aligned segment basic">
