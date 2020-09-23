@@ -7,8 +7,8 @@ import SortBar from './SortBar'
 class BotsPage extends Component {
   state = {
     bots: [],
-    army: [], 
-    toggled: false, 
+    army: [],
+    toggled: false,
     showBot: {}
   }
 
@@ -26,10 +26,10 @@ class BotsPage extends Component {
   addBot = (bot) => {
     if (!this.state.army.includes(bot)) {
       let newArmy = [...this.state.army, bot]
-      let newBots= this.state.bots.filter(b => b.id !== bot.id)
-      this.setState({ 
+      let newBots = this.state.bots.filter(b => b.id !== bot.id)
+      this.setState({
         bots: newBots,
-        army: newArmy, 
+        army: newArmy,
         toggled: false
       })
     }
@@ -37,7 +37,11 @@ class BotsPage extends Component {
 
   removeBot = (bot) => {
     let newArmy = this.state.army.filter(b => b.id !== bot.id)
-    this.setState({ army: newArmy })
+    let newBots = [...this.state.bots, bot]
+    this.setState({
+      army: newArmy,
+      bots: newBots
+    })
   }
 
   deleteBot = (event, bot) => {
@@ -65,18 +69,18 @@ class BotsPage extends Component {
 
   showBotSpecs = (bot) => {
     this.setState({
-      showBot: bot, 
+      showBot: bot,
       toggled: true
     })
   }
 
   showCollection = () => {
-    this.setState({toggled: false})
+    this.setState({ toggled: false })
   }
 
-  sortBots= (attribute) => {
+  sortBots = (attribute) => {
     this.fetchBots()
-    setTimeout(()=> {
+    setTimeout(() => {
       let newBots = [...this.state.bots]
       if (attribute === "health") {
         newBots.sort((a, b) => (a.health > b.health) ? -1 : 1)
@@ -95,9 +99,9 @@ class BotsPage extends Component {
   render() {
     return (
       <div>
-        <SortBar sortBots={this.sortBots}/>
+        <SortBar sortBots={this.sortBots} />
         <YourBotArmy deleteBot={this.deleteBot} bots={this.state.army} removeBot={this.removeBot} />
-        {this.state.toggled ? <BotSpecs addBot={this.addBot} showCollection={this.showCollection} bot={this.state.showBot}/> : <BotCollection showBotSpecs={this.showBotSpecs} deleteBot={this.deleteBot} bots={this.state.bots} />}
+        {this.state.toggled ? <BotSpecs addBot={this.addBot} showCollection={this.showCollection} bot={this.state.showBot} /> : <BotCollection showBotSpecs={this.showBotSpecs} deleteBot={this.deleteBot} bots={this.state.bots} />}
       </div>
     )
   }
