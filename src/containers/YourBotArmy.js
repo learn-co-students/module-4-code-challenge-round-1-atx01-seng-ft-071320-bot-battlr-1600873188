@@ -13,7 +13,6 @@ class YourBotArmy extends Component {
         <div className="ui five column grid">
           <div className="row bot-army-row">
             {this.renderArmy(army)}
-            Your Bot Army
           </div>
         </div>
       </div>
