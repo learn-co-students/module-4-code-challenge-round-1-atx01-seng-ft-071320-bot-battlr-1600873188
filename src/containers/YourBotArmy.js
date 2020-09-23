@@ -3,7 +3,7 @@ import BotCard from '../components/BotCard'
 
 class YourBotArmy extends Component {
   renderArmy = (army) => {
-    return army.map(bot => <BotCard key={bot.id} bot={bot} army={this.props.army} addToArmy={this.props.addToArmy} />)
+    return army.map(bot => <BotCard key={bot.id} bot={bot} army={this.props.army} editArmy={this.props.editArmy} deleteBot={this.props.deleteBot} />)
   }
 
   render() {

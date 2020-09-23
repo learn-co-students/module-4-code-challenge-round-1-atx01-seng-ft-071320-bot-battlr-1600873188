@@ -11,17 +11,22 @@ const botTypeClasses = {
 
 const BotCard = props => {
   let bot = props.bot
+
   let handleClick = () => {
-    props.addToArmy(bot)
+    props.editArmy(bot)
   }
+
+  let handleDelete = (botID) => {
+    props.deleteBot(botID)
+  }
+
   return (
     <div className="ui column">
       <div
         className="ui card"
         key={bot.id}
-        onClick={handleClick}
       >
-        <div className="image">
+        <div className="image" onClick={handleClick}>
           <img alt="oh no!" src={bot.avatar_url} />
         </div>
         <div className="content">
@@ -51,9 +56,7 @@ const BotCard = props => {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
-                }
+                onClick={() => handleDelete(bot.id)}
               >
                 x
               </button>
