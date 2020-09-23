@@ -1,11 +1,18 @@
 import React, { Component } from "react";
+import BotCard from "../components/BotCard"
 
 class BotsPage extends Component {
-  //start here with your code for step one
+  constructor(props) {
+    this.state = {
+      bot: props.bot,
+    };
+  }
+  
 
   render() {
-    return <div>{/* put your components here */}</div>;
+    return <div>{console.log(this.state.bot)}</div>;
   }
 }
 
 export default BotsPage;
+ 
