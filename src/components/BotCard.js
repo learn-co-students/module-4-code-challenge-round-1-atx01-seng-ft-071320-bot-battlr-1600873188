@@ -15,7 +15,13 @@ const BotCard = props => {
       <div
         className="ui card"
         key={props.bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        onClick={() => {
+          if (!!props.showBotSpecs){
+            props.showBotSpecs(props.bot)
+          } else if (!!props.removeBot) {
+            props.removeBot(props.bot)
+          }
+        }}
       >
         <div className="image">
           <img alt="oh no!" src={props.bot.avatar_url} />
@@ -47,8 +53,8 @@ const BotCard = props => {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
+                onClick={(e) =>
+                  props.deleteBot(e, props.bot)
                 }
               >
                 x
