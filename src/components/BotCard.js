@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const botTypeClasses = {
   Assault: "icon military",
   Defender: "icon shield",
@@ -15,10 +16,9 @@ const BotCard = props => {
       <div
         className="ui card"
         key={props.bot.id}
-        onClick={() => console.log("add code to connect event listener")}
       >
         <div className="image">
-          <img alt="oh no!" src={props.bot.avatar_url} />
+          <img alt="oh no!" src={props.bot.avatar_url} onClick={() => props.addBot(props.bot.id)}/>
         </div>
         <div className="content">
           <div className="header">
@@ -47,9 +47,7 @@ const BotCard = props => {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
-                }
+                onClick={() =>props.deleteBot(props.bot.id)}
               >
                 x
               </button>
