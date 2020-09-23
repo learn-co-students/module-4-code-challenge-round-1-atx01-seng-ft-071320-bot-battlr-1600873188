@@ -9,7 +9,25 @@ const botTypeClasses = {
   Captain: "icon star"
 };
 
-class BotCard extends Component {
+class ArmyBotCard extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+        clicked: false
+    }
+  }
+
+  handleClick = () => {
+    this.setState(previousState => {
+        return {
+          clicked: !previousState.clicked
+        }
+      }, () => {
+        this.props.handleCardClick(this.state.clicked)})
+    }   
+
+
   render() {
     return (
     <div className="ui column">
@@ -18,7 +36,7 @@ class BotCard extends Component {
         key={this.props.bot.id}
       >
         <div className="image">
-          <img alt="oh no!" src={this.props.bot.avatar_url} onClick={() => this.props.handleCardClick(this.props.bot.name)}/>
+          <img alt="oh no!" src={this.props.bot.avatar_url} onClick={this.handleClick}/>
         </div>
         <div className="content">
           <div className="header">
@@ -60,7 +78,7 @@ class BotCard extends Component {
   }
 };
 
-export default BotCard;
+export default ArmyBotCard;
 
 
 
