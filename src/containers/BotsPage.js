@@ -39,10 +39,10 @@ class BotsPage extends Component {
   render() {
     let bots = this.state.bots
     return <div>
-      <div className='army-container'>
+      <div>
         <YourBotArmy army={this.state.army} editArmy={this.editArmy} deleteBot={this.deleteBot} />
       </div>
-      <div className="bot-colelction-container" id="bot-collection">
+      <div>
         <BotCollection bots={bots} editArmy={this.editArmy} deleteBot={this.deleteBot} />
       </div>;
     </div>

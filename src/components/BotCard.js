@@ -16,7 +16,6 @@ const BotCard = props => {
     props.editArmy(bot)
   }
 
-
   let handleDelete = (botID) => {
     props.deleteBot(botID)
   }
